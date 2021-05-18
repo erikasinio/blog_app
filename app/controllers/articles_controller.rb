@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
 
+    def edit
+        @article = Article.find(params[:id])
+    end
+
     def new
         @article = Article.new
         @article.title = params[:title]
@@ -21,6 +25,16 @@ class ArticlesController < ApplicationController
         else
           render :new
         end
+    end
+
+    def update
+        @article = Article.find(params[:id])
+         if @article.update(article_params)
+            flash[notice] = "Article was updated successfully."
+            redirect_to @article
+         else
+            render 'edit'
+         end
     end
 
     private
