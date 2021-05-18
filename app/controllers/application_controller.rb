@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
 
-    def hello
-      render html:'Hello World!'
-    end
+    # def hello
+    #   render html:'Hello World!'
+    # end
 
-    def index
-        @articles = Article.all
-      end
+    # def index
+    #     @articles = Article.all
+    #   end
     #   def show
     #     @article = Article.find(params[:id])
     #     @comments = @article.comments
