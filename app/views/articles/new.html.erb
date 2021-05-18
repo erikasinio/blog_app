@@ -1,28 +1,7 @@
 <h1>CREATE NEW ARTICLE</h1>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
-    <p>
-      <% if @article.errors.any? %>
-      <h2>The following errors prevented the article from being saved</h2>
-        <ul>
-          <% @article.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </p>
-    
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :body %><br/>
-        <%= f.text_area :body %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-    <% end %>
+<%= render 'form' %>
 
-    <%= link_to 'Return to articles listing', articles_path %>
+
+
+<%= link_to 'Return to articles listing', articles_path %>
