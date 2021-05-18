@@ -1,6 +1,9 @@
-<%= form_with scope: :article, url: create_article_path, local: true do |f| %>
+<h1>CREATE NEW ARTICLE</h1>
+
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
     <p>
       <% if @article.errors.any? %>
+      <h2>The following errors prevented the article from being saved</h2>
         <ul>
           <% @article.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -8,13 +11,14 @@
         </ul>
       <% end %>
     </p>
+    
     <p>
         <%= f.label :title %><br/>
         <%= f.text_field :title %>
     </p>
     <p>
         <%= f.label :body %><br/>
-        <%= f.text_field :body %>
+        <%= f.text_area :body %>
     </p>
     <p>
       <%= f.submit %>
